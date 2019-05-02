@@ -4,12 +4,13 @@ require 'vendor/autoload.php';
 use PHPHtmlParser\Dom;
 
 $url = 'https://www.accuweather.com/en/es/torrevieja/306480/daily-weather-forecast/306480';
-$ua = 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36';
+$ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36';
 
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_USERAGENT, $ua);
 $result = curl_exec($curl);
+
 
 $dom = new Dom;
 $dom->load($result);
